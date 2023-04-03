@@ -2,7 +2,7 @@
 title: ref模板引用
 date: 2023-04-03 18:19:13
 tags: "vue"
-category:"vue"
+category: "vue"
 ---
 # ref模板引用
 Vue 为我们处理了所有的 DOM 更新，这要归功于响应性和声明式渲染。然而，有时我们也会不可避免地需要手动操作 DOM。
