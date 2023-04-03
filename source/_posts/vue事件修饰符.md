@@ -2,7 +2,7 @@
 title: vue事件修饰符
 date: 2023-04-03 19:19:05
 tags: "vue"
-category:"vue"
+category: "vue"
 ---
 # vue事件修饰符
 ## 事件修饰符
