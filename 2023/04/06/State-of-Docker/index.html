@@ -1,0 +1,297 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="dark"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>State of Docker | Dludoraの博客</title><meta name="keywords" content="docker"><meta name="author" content="Dludora"><meta name="copyright" content="Dludora"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#0d0d0d"><meta name="description" content="State of Docker Find the current state of a docker container 在默认情况下，指令docker ps 展示了所有的docker容器的现有状态 1234$ docker ps -aCONTAINER ID   IMAGE      COMMAND       CREATED              STATUS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="State of Docker">
+<meta property="og:url" content="http://dludora.github.io/2023/04/06/State-of-Docker/index.html">
+<meta property="og:site_name" content="Dludoraの博客">
+<meta property="og:description" content="State of Docker Find the current state of a docker container 在默认情况下，指令docker ps 展示了所有的docker容器的现有状态 1234$ docker ps -aCONTAINER ID   IMAGE      COMMAND       CREATED              STATUS">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://dludora.github.io/img/cover2.jpg">
+<meta property="article:published_time" content="2023-04-06T05:53:51.000Z">
+<meta property="article:modified_time" content="2023-04-05T23:44:53.898Z">
+<meta property="article:author" content="Dludora">
+<meta property="article:tag" content="docker">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://dludora.github.io/img/cover2.jpg"><link rel="shortcut icon" href="/img/favicon.ico"><link rel="canonical" href="http://dludora.github.io/2023/04/06/State-of-Docker/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: {"appId":"A2XSOY6CBR","apiKey":"dd908450710645594929790f5d604c14","indexName":"hexo","hits":{"per_page":6},"languages":{"input_placeholder":"搜索文章","hits_empty":"找不到您查询的内容：${query}","hits_stats":"找到 ${hits} 条结果，用时 ${time} 毫秒"}},
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'State of Docker',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-04-06 07:44:53'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">25</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">8</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/cover2.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Dludoraの博客</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">State of Docker</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-04-06T05:53:51.000Z" title="发表于 2023-04-06 13:53:51">2023-04-06</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-04-05T23:44:53.898Z" title="更新于 2023-04-06 07:44:53">2023-04-06</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/docker/">docker</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">958</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>4分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="State of Docker"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1>State of Docker</h1>
+<h2 id="Find-the-current-state-of-a-docker-container">Find the current state of a docker container</h2>
+<p>在默认情况下，指令<code>docker ps</code> 展示了所有的docker容器的现有状态</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ docker ps -a</span><br><span class="line">CONTAINER ID   IMAGE      COMMAND       CREATED              STATUS                          PORTS     NAMES</span><br><span class="line">8f0b524f2d32   centos:7   <span class="string">&quot;/bin/bash&quot;</span>   46 seconds ago       Created                                   strange_beaver</span><br><span class="line">e6d798254d45   centos:7   <span class="string">&quot;/bin/bash&quot;</span>   About a minute ago   Exited (0) About a minute ago             wizardly_cohen</span><br></pre></td></tr></table></figure>
+<p>以上的输出展示了当前机器中所有容器的Status以及其他的一些细节<br>
+我们也可以使用<code>docker inspect</code>指令来获取单独容器的Status信息</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ docker inspect -f <span class="string">&#x27;&#123;&#123;.State.Status&#125;&#125;&#x27;</span> mycontainer</span><br><span class="line">running</span><br></pre></td></tr></table></figure>
+<p>在这里，<code>mycontainer</code>是我们想要查询当前状态的容器的容器名，也可以用容器ID来代替</p>
+<h2 id="Possible-States-of-a-Docker-Container">Possible States of a Docker Container</h2>
+<p>在任何情况下，一个Docker container可以有六种可能的States</p>
+<h3 id="Created">Created</h3>
+<p>Docker将created state分配给那些自从创建后从未被启动的容器，因此，这个状态下的container没有CPU和内存分配</p>
+<p>使用<code>docker create</code>指令创建的docker container的Status是created。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ docker create --name mycontainer httpd</span><br><span class="line">dd109e4be16219f1a6b9fc1cbfb050c1ae035d6a2c301ea0e93eb7d5252b8d2e</span><br><span class="line">$ docker inspect -f <span class="string">&#x27;&#123;&#123;.State.Status&#125;&#125;&#x27;</span> mycontainer</span><br><span class="line">created</span><br></pre></td></tr></table></figure>
+<p>这里我们使用官方Docker镜像httpd创建了一个Docker container，mycontainer。<br>
+当我们想要进行一些大的项目时，这样的容器是非常有用的。</p>
+<h3 id="Running">Running</h3>
+<p>当我们使用<code>docker start</code>命令启动一个已经创建的容器，它进入了启动状态</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$ docker create --name mycontainer httpd</span><br><span class="line">8d60cb560afc1397d6732672b2b4af16a08bf6289a5a0b6b5125c5635e8ee749</span><br><span class="line">$ docker inspect -f <span class="string">&#x27;&#123;&#123;.State.Status&#125;&#125;&#x27;</span> mycontainer</span><br><span class="line">created</span><br><span class="line">$ docker start mycontainer</span><br><span class="line">mycontainer</span><br><span class="line">$ docker inspect -f <span class="string">&#x27;&#123;&#123;.State.Status&#125;&#125;&#x27;</span> mycontainer</span><br><span class="line">running</span><br></pre></td></tr></table></figure>
+<p>在上述例子中，我们首先使用官方的httpd Docker image创建一个Docker 容器，然后使用<code>docker start</code>指令来启动该容器。</p>
+<p>使用<code>docker run</code>指令运行的容器也时相同的主嗯台</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ docker run -itd --name mycontainer httpd</span><br><span class="line">685efd4c1c4a658fd8a0d6ca66ee3cf88ab75a127b9b439026e91211d09712c7</span><br><span class="line">$ docker inspect -f <span class="string">&#x27;&#123;&#123;.State.Status&#125;&#125;&#x27;</span> mycontainer</span><br><span class="line">running</span><br></pre></td></tr></table></figure>
+<p>在这个状态下，容器消耗CPU和内存资源</p>
+<h3 id="Restarting">Restarting</h3>
+<p>简单来说，这个状态表明容器正在重启<br>
+Docker支持四种重启策略，分别是</p>
+<ul>
+<li>no</li>
+<li>on-failure</li>
+<li>always</li>
+<li>unless-stopped</li>
+</ul>
+<p>重启策略决定了当容器exit时它的表现。默认情况下，重启策略是no，这意味着在容器exit之后它不会自动被启动<br>
+更新重启策略至<code>always</code>并且使用下面的例子修改容器状态</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ docker run -itd --restart=always --name mycontainer centos:7 <span class="built_in">sleep</span> 5</span><br><span class="line">f7d0e8becdac1ebf7aae25be2d02409f0f211fcc191aea000041d158f89be6f6</span><br></pre></td></tr></table></figure>
+<p>上述例子将会运行mycontainer并且执行<code>sleep 5</code>指令然后exit。但是因为我们已经改变了restart policy，在该容器exit之后它会自动重启。<br>
+五秒之后，这个容器的状态将是restarting</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ docker inspect -f <span class="string">&#x27;&#123;&#123;.State.Status&#125;&#125;&#x27;</span> mycontainer</span><br><span class="line">restarting</span><br></pre></td></tr></table></figure>
+<h3 id="Exited">Exited</h3>
+<p>当容器内的进程终止时，就会达到这种状态。 在此状态下，容器不会消耗任何 CPU 和内存。<br>
+容器可能因为以下几种原因exit</p>
+<ul>
+<li>容器内的进程已经完成，因此容器exit</li>
+<li>容器内的进程在运行的时候遇到了错误</li>
+<li>使用<code>docker stop</code>命令有意停止容器</li>
+<li>运行bash的容器没有设置交互式终端</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ docker run -itd --name mycontainer centos:7 <span class="built_in">sleep</span> 10</span><br><span class="line">596a10ddb635b83ad6bb9daffb12c1e2f230280fe26be18559c53c1dca6c755f</span><br></pre></td></tr></table></figure>
+<p>无法使用 <code>docker exec</code> 命令访问处于退出状态的容器。 但是，我们可以使用 <code>docker start</code> 或 <code>docker restart</code> 启动容器，然后访问它。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ docker start mycontainer</span><br></pre></td></tr></table></figure>
+<h3 id="Paused">Paused</h3>
+<p>在此状态下，容器不占用CPU资源，但会消耗内存</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ docker pause mycontainer</span><br><span class="line">mycontainer</span><br><span class="line">$ docker inspect -f <span class="string">&#x27;&#123;&#123;.State.Status&#125;&#125;&#x27;</span> mycontainer</span><br><span class="line">paused</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ docker unpause mycontainer</span><br><span class="line">mycontainer</span><br></pre></td></tr></table></figure>
+<h3 id="Dead">Dead</h3>
+<p>Docker 容器的死状态意味着该容器无法正常运行。 当我们尝试删除容器时会达到此状态，但无法删除，因为某些资源仍在被外部进程使用。 因此，容器被移动到死状态。<br>
+处于死状态的容器无法重新启动。 它们只能被移除。 由于处于死状态的容器被部分删除，因此它不会消耗任何内存或 CPU。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="http://Dludora.github.io">Dludora</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://dludora.github.io/2023/04/06/State-of-Docker/">http://dludora.github.io/2023/04/06/State-of-Docker/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://Dludora.github.io" target="_blank">Dludoraの博客</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/docker/">docker</a></div><div class="post_share"><div class="social-share" data-image="/img/cover2.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-full"><a href="/2023/04/03/vue%E4%BA%8B%E4%BB%B6%E4%BF%AE%E9%A5%B0%E7%AC%A6/"><img class="prev-cover" src="/img/cover4.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">vue事件修饰符</div></div></a></div></nav><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div><div id="comment-switch"><span class="first-comment">Valine</span><span class="switch-btn"></span><span class="second-comment">Disqus</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div><div><div id="disqus_thread"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Dludora</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">25</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">8</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/Dludora?tab=repositories"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/Dludora?tab=repositories" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="https://www.bilibili.com" target="_blank" title="Bilibili"><i class="fab fa-bilibili"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">State of Docker</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Find-the-current-state-of-a-docker-container"><span class="toc-number">1.1.</span> <span class="toc-text">Find the current state of a docker container</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Possible-States-of-a-Docker-Container"><span class="toc-number">1.2.</span> <span class="toc-text">Possible States of a Docker Container</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Created"><span class="toc-number">1.2.1.</span> <span class="toc-text">Created</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Running"><span class="toc-number">1.2.2.</span> <span class="toc-text">Running</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Restarting"><span class="toc-number">1.2.3.</span> <span class="toc-text">Restarting</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Exited"><span class="toc-number">1.2.4.</span> <span class="toc-text">Exited</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Paused"><span class="toc-number">1.2.5.</span> <span class="toc-text">Paused</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Dead"><span class="toc-number">1.2.6.</span> <span class="toc-text">Dead</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2023/04/06/State-of-Docker/" title="State of Docker"><img src="/img/cover2.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="State of Docker"/></a><div class="content"><a class="title" href="/2023/04/06/State-of-Docker/" title="State of Docker">State of Docker</a><time datetime="2023-04-06T05:53:51.000Z" title="发表于 2023-04-06 13:53:51">2023-04-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/04/03/vue%E4%BA%8B%E4%BB%B6%E4%BF%AE%E9%A5%B0%E7%AC%A6/" title="vue事件修饰符"><img src="/img/cover4.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="vue事件修饰符"/></a><div class="content"><a class="title" href="/2023/04/03/vue%E4%BA%8B%E4%BB%B6%E4%BF%AE%E9%A5%B0%E7%AC%A6/" title="vue事件修饰符">vue事件修饰符</a><time datetime="2023-04-03T11:19:05.000Z" title="发表于 2023-04-03 19:19:05">2023-04-03</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/04/03/ref%E6%A8%A1%E6%9D%BF%E5%BC%95%E7%94%A8/" title="ref模板引用"><img src="/img/cover2.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="ref模板引用"/></a><div class="content"><a class="title" href="/2023/04/03/ref%E6%A8%A1%E6%9D%BF%E5%BC%95%E7%94%A8/" title="ref模板引用">ref模板引用</a><time datetime="2023-04-03T10:19:13.000Z" title="发表于 2023-04-03 18:19:13">2023-04-03</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/03/30/Vue-Django%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/" title="Vue+Django部署教程"><img src="/img/cover5.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Vue+Django部署教程"/></a><div class="content"><a class="title" href="/2023/03/30/Vue-Django%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/" title="Vue+Django部署教程">Vue+Django部署教程</a><time datetime="2023-03-30T04:41:31.000Z" title="发表于 2023-03-30 12:41:31">2023-03-30</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/03/20/%E7%88%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E4%BC%A0%E5%8F%82/" title="父子组件传参"><img src="/img/cover2.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="父子组件传参"/></a><div class="content"><a class="title" href="/2023/03/20/%E7%88%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E4%BC%A0%E5%8F%82/" title="父子组件传参">父子组件传参</a><time datetime="2023-03-20T14:08:28.000Z" title="发表于 2023-03-20 22:08:28">2023-03-20</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('/img/cover2.jpg')"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By Dludora</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="algolia-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="search-wrap"><div id="algolia-search-input"></div><hr/><div id="algolia-search-results"><div id="algolia-hits"></div><div id="algolia-pagination"></div><div id="algolia-info"><div class="algolia-stats"></div><div class="algolia-poweredBy"></div></div></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><script>function panguFn () {
+  if (typeof pangu === 'object') pangu.autoSpacingPage()
+  else {
+    getScript('https://cdn.jsdelivr.net/npm/pangu/dist/browser/pangu.min.js')
+      .then(() => {
+        pangu.autoSpacingPage()
+      })
+  }
+}
+
+function panguInit () {
+  if (false){
+    GLOBAL_CONFIG_SITE.isPost && panguFn()
+  } else {
+    panguFn()
+  }
+}
+
+document.addEventListener('DOMContentLoaded', panguInit)</script><script src="https://cdn.jsdelivr.net/npm/algoliasearch/dist/algoliasearch-lite.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instantsearch.js/dist/instantsearch.production.min.js"></script><script src="/js/search/algolia.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',preloader.endLoading())</script><div class="js-pjax"><script>function loadValine () {
+  function initValine () {
+    const valine = new Valine(Object.assign({
+      el: '#vcomment',
+      appId: '',
+      appKey: '',
+      avatar: 'monsterid',
+      serverURLs: '',
+      emojiMaps: "",
+      path: window.location.pathname,
+      visitor: false
+    }, null))
+  }
+
+  if (typeof Valine === 'function') initValine() 
+  else getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js').then(initValine)
+}
+
+if ('Valine' === 'Valine' || !true) {
+  if (true) btf.loadComment(document.getElementById('vcomment'),loadValine)
+  else setTimeout(loadValine, 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script><script>function loadDisqus () {
+  var disqus_config = function () {
+    this.page.url = 'http://dludora.github.io/2023/04/06/State-of-Docker/'
+    this.page.identifier = '/2023/04/06/State-of-Docker/'
+    this.page.title = 'State of Docker'
+  };
+
+  window.disqusReset = () => {
+    DISQUS.reset({
+      reload: true,
+      config: disqus_config
+    })
+  }
+
+  if (window.DISQUS) disqusReset()
+  else {
+    (function() { 
+      var d = document, s = d.createElement('script');
+      s.src = 'https://.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  }
+
+  document.getElementById('darkmode').addEventListener('click', () => {
+    setTimeout(() => window.disqusReset(), 200)
+  })
+}
+
+if ('Valine' === 'Disqus' || !true) {
+  if (true) btf.loadComment(document.getElementById('disqus_thread'), loadDisqus)
+  else loadDisqus()
+} else {
+  function loadOtherComment () {
+    loadDisqus()
+  }
+}
+</script></div><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = true;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
